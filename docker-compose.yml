@@ -1,0 +1,44 @@
+services:
+  main-db-service:
+    image: postgres:16
+    ports:
+      - "5432:5432"
+    volumes:
+      - main_db_volume:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=main_db_user
+      - POSTGRES_PASSWORD=12345
+      - POSTGRES_DB=main_db
+
+
+volumes:
+  main_db_volume:
+
+
+# Reference
+# services:
+#   orders-db:
+#     image: postgres:16
+#     environment:
+#       - POSTGRES_USER=orders_user
+#       - POSTGRES_PASSWORD=orders_pass
+#       - POSTGRES_DB=orders
+#     volumes:
+#       - orders_db_data:/var/lib/postgresql/data
+#     ports:
+#       - "5433:5432"   # different HOST port to avoid clashing
+
+#   inventory-db:
+#     image: postgres:16
+#     environment:
+#       - POSTGRES_USER=inventory_user
+#       - POSTGRES_PASSWORD=inventory_pass
+#       - POSTGRES_DB=inventory
+#     volumes:
+#       - inventory_db_data:/var/lib/postgresql/data
+#     ports:
+#       - "5434:5432"   # different HOST port again
+
+# volumes:
+#   orders_db_data:
+#   inventory_db_data:
