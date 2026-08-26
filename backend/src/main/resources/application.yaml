@@ -2,7 +2,7 @@ spring:
   application:
     name: backend
   datasource:
-    url: jdbc:postgresql://localhost:5432/main_db
+    url: jdbc:postgresql://main-db-service:5432/main_db
     username: main_db_user
     password: 12345
   flyway:
