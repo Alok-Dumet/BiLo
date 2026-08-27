@@ -10,12 +10,14 @@ services:
       - POSTGRES_PASSWORD=12345
       - POSTGRES_DB=main_db
 
-  backend:
-    build: ./backend
-    ports:
-      - "8080:8080"
-    depends_on:
-      - main-db-service
+  # backend:
+  #   build: ./backend
+  #   # environment:
+  #   #   - SPRING_PROFILES_ACTIVE=docker
+  #   ports:
+  #     - "8080:8080"
+  #   depends_on:
+  #     - main-db-service
 
 
 volumes:
