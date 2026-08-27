@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bilo.backend.dto.CreateProductRequest;
 import com.bilo.backend.model.Product;
 import com.bilo.backend.repository.ProductRepository;
 
@@ -25,7 +26,11 @@ public class ProductController {
     }
 
     @PostMapping("/products")
-    public Product createProduct(@Valid @RequestBody Product product){
+    public Product createProduct(@Valid @RequestBody CreateProductRequest request){
+        Product product = new Product();
+        product.setDescription(request.description());
+        product.setName(request.name());
+        product.setPrice(request.price());
         return productRepository.save(product);
     }
 }
