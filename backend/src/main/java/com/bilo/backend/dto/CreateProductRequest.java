@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
+import java.util.UUID;
 
 public record CreateProductRequest(
     @NotBlank(message = "Name is required")
@@ -17,5 +18,8 @@ public record CreateProductRequest(
     @NotNull(message = "Price is required")
     @PositiveOrZero(message = "Price cannot be negative")
     @DecimalMax(value = "999999.99", message = "Price cannot exceed 999,999.99")
-    Double price
+    Double price,
+
+    @NotNull(message = "Primary Category is required")
+    UUID primaryCategoryId
 ) {}
