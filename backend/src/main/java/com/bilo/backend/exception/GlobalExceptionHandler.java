@@ -18,4 +18,12 @@ public class GlobalExceptionHandler {
         response.put("error", ex.getBindingResult().getFieldError().getDefaultMessage());
         return ResponseEntity.badRequest().body(response);
     }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<Map<String, String>> handleIllegalArgument(IllegalArgumentException ex) {
+        Map<String, String> response = new HashMap<>();
+        response.put("status", "400");
+        response.put("error", ex.getMessage());
+        return ResponseEntity.badRequest().body(response);
+    }
 }
