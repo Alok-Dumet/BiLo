@@ -29,8 +29,7 @@ public class CategoryController {
 
     @GetMapping("/categories/{id}")
     public Category getCategoryById(@PathVariable UUID id) {
-        return categoryRepository.findById(id)
-            .orElseThrow(() -> new IllegalArgumentException("Category not found"));
+        return categoryRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Category not found"));
     }
 
     @PostMapping("/categories")

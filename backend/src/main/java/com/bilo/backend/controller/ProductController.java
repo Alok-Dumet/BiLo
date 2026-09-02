@@ -35,8 +35,7 @@ public class ProductController {
 
     @GetMapping("/products/{id}")
     public Product getProductById(@PathVariable UUID id) {
-        return productRepository.findById(id)
-            .orElseThrow(() -> new IllegalArgumentException("Product not found"));
+        return productRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Product not found"));
     }
 
     @PostMapping("/products")
